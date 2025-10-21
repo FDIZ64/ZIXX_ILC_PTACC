@@ -137,7 +137,7 @@
             <Annotations Target="cds_zixx_ilc_ptacc_srv.ZIXX_ILC_PTACC_VType/matnr">
                 <Annotation Term="Common.ValueList">
                     <Record Type="Common.ValueListType">
-                    <PropertyValue Property="CollectionPath" String="ZIXX_ILC_PTACC_V"/>
+                    <PropertyValue Property="CollectionPath" String=""/>
                     <PropertyValue Property="SearchSupported" Bool="true"/>
                     <PropertyValue Property="Parameters">
                         <Collection>
