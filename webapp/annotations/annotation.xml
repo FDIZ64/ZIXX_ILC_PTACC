@@ -1,18 +1,163 @@
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">        
+         <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>    
+    </edmx:Reference>
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
         <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
     </edmx:Reference>
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
         <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
     </edmx:Reference>
-    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
-        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
-    </edmx:Reference>
     <edmx:Reference Uri="/sap/opu/odata/sap/ZIXX_ILC_PTACC_V_BIND/$metadata">
         <edmx:Include Namespace="cds_zixx_ilc_ptacc_srv"/>
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="cds_zixx_ilc_ptacc_srv.cds_zixx_ilc_ptacc_srv_Entities/ZIXX_ILC_PTACC_V">
+            <Annotation Term="Capabilities.UpdateRestrictions">
+                <Record Type="Capabilities.UpdateRestrictionsType"> 
+                       <PropertyValue Property="Updatable" Bool="true"/>   
+                </Record>   
+            </Annotation>
+            <Annotation Term="Capabilities.InsertRestrictions">
+                <Record Type="Capabilities.InsertRestrictionsType">
+                    <PropertyValue Property="Insertable" Bool="true"/>
+                </Record>
+            </Annotation>
+            </Annotations>
+
+            <Annotations Target="cds_zixx_ilc_ptacc_srv.ZIXX_ILC_PTACC_VType">
+            <Annotation Term="Common.DraftRoot">
+                <Record Type="Common.DraftRootType"/>
+            </Annotation>            
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <!-- Etiqueta que se muestra en la pestaña o sección -->
+                            <PropertyValue Property="Label" String="{@i18n>tableTitleSingular}" />
+                            <!-- Referencia al grupo de campos que se va a mostrar en esta faceta -->
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#tabCaseOverview" />
+                        </Record>                    
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="tabCaseOverview">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                           <Collection>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="rbukrs" />
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="racct" />
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="gjahr" />
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="belnr" />
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="buzei" />
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ebeln" />
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ebelp" />
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="matnr" />
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="status" />
+                            </Record>
+                           </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>                            
+          
+            </Annotations>
+
+            <Annotations Target="cds_zixx_ilc_ptacc_srv.ZIXX_ILC_PTACC_VType">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="rbukrs"/>
+                            <PropertyValue Property="Label" String="{@i18n>rbukrs}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="racct"/>
+                            <PropertyValue Property="Label" String="{@i18n>racct}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="gjahr"/>
+                            <PropertyValue Property="Label" String="{@i18n>gjahr}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="belnr"/>
+                            <PropertyValue Property="Label" String="{@i18n>belnr}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="buzei"/>
+                            <PropertyValue Property="Label" String="{@i18n>buzei}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ebeln"/>
+                            <PropertyValue Property="Label" String="EBELN"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ebelp"/>
+                            <PropertyValue Property="Label" String="EBELP"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="matnr"/>
+                            <PropertyValue Property="Label" String="MATNR"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="status"/>
+                            <PropertyValue Property="Label" String="STATUS"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>rbukrs</PropertyPath>
+                        <PropertyPath>racct</PropertyPath>
+                        <PropertyPath>gjahr</PropertyPath>
+                        <PropertyPath>belnr</PropertyPath>
+                        <PropertyPath>buzei</PropertyPath>
+                        <PropertyPath>ebeln</PropertyPath>
+                        <PropertyPath>ebelp</PropertyPath>
+                        <PropertyPath>matnr</PropertyPath>
+                        <PropertyPath>status</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="cds_zixx_ilc_ptacc_srv.ZIXX_ILC_PTACC_VType/matnr">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                    <PropertyValue Property="CollectionPath" String="ZIXX_ILC_PTACC_V"/>
+                    <PropertyValue Property="SearchSupported" Bool="true"/>
+                    <PropertyValue Property="Parameters">
+                        <Collection>
+                            <Record Type="Common.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="matnr"/>
+                            <PropertyValue Property="ValueListProperty" String="matnr"/>
+                            </Record>                            
+                        <Record Type="Common.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="matnr"/>
+                        </Record>
+
+                        </Collection>
+                    </PropertyValue>
+                    </Record>
+
+                </Annotation>
+
+
+            </Annotations>
+
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

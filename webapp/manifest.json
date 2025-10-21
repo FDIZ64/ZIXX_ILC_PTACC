@@ -109,6 +109,29 @@
       "config": {},
       "routes": [],
       "targets": {}
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "controllerName": "zixxilcptacc.ext.controller.ListReportExt",
+            "sap.ui.generic.app": {
+              "ZIXX_ILC_PTACC_V": {
+                "EntitySet": "ZIXX_ILC_PTACC_V",
+                "Actions": {
+                  "addRecord": {
+                    "id": "addRecordButton",
+                    "text": "Insert",
+                    "press": "addRecord",
+                    "requiresSelection": false,
+                    "logicalAction": "Create"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "sap.ui.generic.app": {
